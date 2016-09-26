@@ -3,7 +3,7 @@ import logging
 import os
 import datetime
 
-# set the working dir
+# set temp dir and change working directory
 TEMP_DIR = '/home/backupJob/backups_temp/' # Set the temp folder
 os.chdir(TEMP_DIR)
 
