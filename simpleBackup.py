@@ -39,7 +39,7 @@ def ZipAndStore():
     os.system(cmd)
     FILENAME_FINAL = "%sbackup%s.zip"%(TEMP_DIR, date)
     logger.info('Files zipped successfully..')
-    # ready for upload call ConnectAndUpload
+    # next dump db
     DumpSQLAndSave(FILENAME_FINAL)
 
 def DumpSQLAndSave(Filename):
@@ -49,6 +49,7 @@ def DumpSQLAndSave(Filename):
     logger.info('Adding database to zip file..')
     cmdSave = "sudo zip -g backup%s.zip backup.sql"%(date)
     os.system(cmdSave)
+    # ready to upload
     ConnectAndUpload(Filename)
 
 def ConnectAndUpload(Filename):
