@@ -56,11 +56,11 @@ def ConnectAndUpload(Filename):
         logger.info('Connecting to FTP server...')
         session = ftplib.FTP('FTP IP ADDRESS', 'USERNAME', 'PASSWORD')
         logger.debug('Successfully connected!')
-	    logger.info('Starting upload..')
+	logger.info('Starting upload..')
 
         # open the file set for upload
-	    # set new filename
-	    N_Filename = "backup%s.zip"%(date)
+	# set new filename
+	N_Filename = "backup%s.zip"%(date)
         file = open(Filename, 'rb')
         session.storbinary('STOR %s'%(N_Filename), file)
         logger.info('Backup job done!')
@@ -68,11 +68,11 @@ def ConnectAndUpload(Filename):
         file.close()
         session.quit()
 
-	    # send mail
-	    succs = 'echo Backup Succesfull | mail -s "BackupJob Done" root@localhost'
-	    os.system(succs)
-	    # delete temp files
-	    DeleteAndCleanup(N_Filename)
+	# send mail
+	succs = 'echo Backup Succesfull | mail -s "BackupJob Done" root@localhost'
+	os.system(succs)
+	# delete temp files
+	DeleteAndCleanup(N_Filename)
 
     except Exception, e:
         logger.error(e)
