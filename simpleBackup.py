@@ -19,7 +19,7 @@ LOG_FILE = 'backup.log'
 logger = logging.getLogger('SimpleBackup')
 logger.setLevel(logging.DEBUG)
 
-# create console handler and set lavel
+# set level
 ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
 
