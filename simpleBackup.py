@@ -70,7 +70,7 @@ def ConnectAndUpload(Filename):
         session.quit()
 
 	# send mail
-	succs = 'echo Backup Succesfull | mail -s "BackupJob Done" root@localhost'
+	succs = 'echo Backup Successful | mail -s "BackupJob Done" root@localhost'
 	os.system(succs)
 	# delete temp files
 	DeleteAndCleanup(N_Filename)
@@ -82,7 +82,7 @@ def ConnectAndUpload(Filename):
 
 def DeleteAndCleanup(Filename):
 	cmdClean = "rm -rf %s%s"%(TEMP_DIR, Filename)
-	cmdCleanSQL = "rm -rf backup.sql"
+	cmdCleanSQL = "rm -f backup.sql"
 	os.system(cmdClean)
 	os.system(cmdCleanSQL)
 	logger.info('Temp files was deleted..')
